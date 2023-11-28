@@ -1,0 +1,19 @@
+
+
+/* PASSWORD INPUT AND ICONS: */
+.password-icon-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-25%);
+    cursor: pointer;
+
+}
+.password-icon {
+    color: var(--accent);
+}
