@@ -3,38 +3,52 @@
 @tailwind utilities;
 
 @import './_styles/index.css';
+@import './_styles/navbar.css';
+
+* {
+  margin: 0;
+  
+
+  
+}
+
+html{
+  overflow-y: scroll;
+}
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 222.2 47.4% 11.2%;
-    /* --primary: 341, 100%, 50%, 1; */
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
- 
+    --navbar-height: 70px;
+    /* --background: 0 0% 100%; */
+    --background: hsl(360, 100%, 100%, 1);
+    --foreground: hsl(222.2 84% 4.9%);
+    --background-contrast: #f6f6f970;
+       /* --------------------------------------- */
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(222.2 84% 4.9%);
+       /* --------------------------------------- */
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(222.2 84% 4.9%);
+    /* --------------------------------------- */
+    --primary: hsl(222.2 47.4% 11.2%);
+    --primary: hsl(341, 100%, 50%, 1);
+    --primary-foreground: hsl(210 40% 98%);
+     /* --------------------------------------- */
+    --secondary: hsl(210 40% 96.1%);
+    --secondary-foreground: hsl(222.2 47.4% 11.2%);
+      /* --------------------------------------- */
+    --muted: hsl(210 40% 96.1%);
+    --muted-foreground: hsl(215.4 16.3% 46.9%);
+      /* --------------------------------------- */
+    --accent: hsl(210 40% 96.1%);
+    --accent-foreground: hsl(222.2 47.4% 11.2%);
+       /* --------------------------------------- */
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(210 40% 98%);
+      /* --------------------------------------- */
+    --border: hsl(214.3 31.8% 91.4%);
+    --input: hsl(214.3 31.8% 91.4%);
+    --ring: hsl(222.2 84% 4.9%);
     --radius: 0.5rem;
   }
  
@@ -78,19 +92,27 @@
   }
 }
 
-
-.wrapper-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.form {
-  width: 100%;
-  max-width: 400px;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  background-color: var(--card);
-  color: var(--card-foreground);
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  margin-top: 70px;
+  position: absolute;
+ 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5555553f;
 }

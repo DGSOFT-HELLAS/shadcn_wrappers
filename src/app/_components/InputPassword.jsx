@@ -17,6 +17,7 @@ export default function InputPass({ label, control, name, placeholder }) {
   const handleClick = () => {
     setShowPassword(prev => !prev)
   }
+  
   return (
     <FormField
       control={control}

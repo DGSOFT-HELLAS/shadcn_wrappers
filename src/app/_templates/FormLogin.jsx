@@ -4,9 +4,8 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
-import InputDatePicker from "../single/InputDatePicker"
-import InputText from "../single/InputText"
-import  InputPass from "../single/InputPassword"
+import InputText from "../_components/InputText"
+import  InputPass from "../_components/InputPassword"
 
 
 const formSchema = z.object({
@@ -38,10 +37,14 @@ export function FormLogin() {
     }
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 form">
+            <div className="login-form-intro">
+            <h1 className="text-3xl font-semibold text-center">Welcome to DigiHub</h1>
+            <p className="text-3xl font-semibold text-center">login to your account</p>
+            </div>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 form">
                 <InputText control={form.control} name='username' label='Username' placeholder='shadcn' />
                 <InputPass control={form.control} name='password' label='Password'/>
-                <Button type="submit">Submit</Button>
+                <Button className="w-full" type="submit">Submit</Button>
             </form>
         </Form>
     )

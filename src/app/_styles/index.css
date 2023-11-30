@@ -1,5 +1,142 @@
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 71px);
+
+}
+.section-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+    /* background-color: rgba(94, 94, 94, 0.205); */
+
+}
+.main-wrapper {
+    width: 60%;
+    min-height: calc(100vh - 71px);
+    margin-right: 20px;
+}
 
 
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-contrast);
+}
+
+
+.nav-container {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: -1px;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    
+   
+}
+
+nav {
+    width: 60%;
+    max-width: 1400px;
+    display: grid;
+    width: 100%;
+    height: var(--navbar-height);
+    grid-template-columns: 100px 1fr 200px;
+    align-items: center;
+}
+
+nav .links {
+    display: inline-flex;
+    align-items: center;
+}
+
+nav .links div {
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+
+nav .links a {
+    align-items: center;
+    margin-right: 16px;
+    padding: 4px;
+    border-radius: var(--border-radius);
+    
+}
+
+.link-active {
+    background-color: var(--muted);
+    border-radius: 6px;
+    box-shadow: 0 0 3px 10px 0 rgba(0, 0, 0, 0.281);
+}
+
+nav .right-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+nav .right-nav div {
+    margin-right: 10px;
+}
+
+
+
+
+
+
+/* FORM WRAPPERS */
+.form-wrapper {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.021);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #e5e7eb;
+    background-color: white;
+}
+
+.form {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--card);
+    color: var(--card-foreground);
+}
+
+
+
+
+.login-form-intro h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+}
+
+.login-form-intro p {
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 200;
+    margin-top: -6px;
+}
 /* PASSWORD INPUT AND ICONS: */
 .password-icon-container {
     position: absolute;
@@ -12,8 +149,19 @@
     top: 50%;
     transform: translateY(-25%);
     cursor: pointer;
-
 }
+
 .password-icon {
     color: var(--accent);
+}
+
+
+.avatar {
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+    user-select: none;
+}
+
+.avatar:active {
+    transform: scale(0.80);
 }
