@@ -4,15 +4,16 @@ import Link from 'next/link'
 import Profile from './Profile'
 import ThemeSwitch from './ThemeSwitch'
 import Logo from './Logo'
-const Navbar = () => {
-    const [active, setActive] = useState(1)
 
+
+
+const NavbarAuth = () => {
+    const [active, setActive] = useState(1)
     const links = [
         { id: 1, text: 'About', href: '/' },
         { id: 2, text: 'Services', href: '/' },
         { id: 3, text: 'Contact', href: '/' },
       ];
-    
       const handleLinkClick = (id) => {
         setActive(id);
       };
@@ -44,4 +45,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavbarAuth;
