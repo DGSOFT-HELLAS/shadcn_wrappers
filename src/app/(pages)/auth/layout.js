@@ -4,7 +4,7 @@ import Navbar from "@/app/_components/Navbar"
 export default function AutLayout({ children }) {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <main className="auth-wrapper">
                 {children}
             </main>

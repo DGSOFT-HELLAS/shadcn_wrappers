@@ -4,6 +4,7 @@
 
 @import './_styles/index.css';
 @import './_styles/navbar.css';
+@import './_styles/sidebarlayout_1.css';
 
 * {
   margin: 0;

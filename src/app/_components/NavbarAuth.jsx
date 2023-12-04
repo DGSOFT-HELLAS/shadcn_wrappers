@@ -38,7 +38,6 @@ const NavbarAuth = () => {
             <div className='right-nav'>
                 <ThemeSwitch />
                 <Profile />
-              
             </div>
         </nav>
        </div>
