@@ -8,7 +8,6 @@ export default function Home() {
    <>
      <Navbar />
       <section className="main-wrapper">
-       
         <section className="section-1">
           <DataTableDemo />
         </section>

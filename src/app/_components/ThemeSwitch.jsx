@@ -4,7 +4,7 @@ import { FiSun } from "react-icons/fi";
 import { useTheme } from "next-themes"
 import { FaMoon } from "react-icons/fa";
 
-const ThemeSwitch = () => {
+const ThemeSwitch = ({mr, ml}) => {
   const { setTheme } = useTheme()
   const [localTheme, setLocalTheme ] = useState(true)
 
@@ -23,7 +23,7 @@ const ThemeSwitch = () => {
           
   }
   return (
-    <div onClick={handleClick} className={`theme-switch bg-muted`}  >
+    <div onClick={handleClick} className={`theme-switch bg-muted`} style={{marginRight: mr, marginLeft: ml}}  >
       <div className='inner-switch' style={localTheme ? {left: '10%'} : {left: '85%', transform: "translateX(-85%)"} }>
        
         {localTheme ? <FiSun /> :<FaMoon />

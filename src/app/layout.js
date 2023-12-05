@@ -1,8 +1,12 @@
-import { Inter } from 'next/font/google'
-import './global.css'
+import { Inter, Open_Sans, Poppins } from 'next/font/google'
+import './_styles/global.css'
 import Navbar from './_components/Navbar'
 import { ThemeProvider } from './theme-provider'
 const inter = Inter({ subsets: ['latin'] })
+const openSans = Open_Sans ({ subsets: ['latin'] })
+const poppins = Poppins ({ subsets: ['latin'],   weight: ["400", "500", "600", "700", "800", "900"],
+})
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,7 +18,7 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={poppins.className}>
         < ThemeProvider
          attribute="class"
          defaultTheme="system"

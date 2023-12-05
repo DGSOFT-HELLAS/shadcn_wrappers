@@ -37,7 +37,6 @@ const Navbar = () => {
             <div className='right-nav'>
                 <ThemeSwitch />
                 <Profile />
-              
             </div>
         </nav>
        </div>
