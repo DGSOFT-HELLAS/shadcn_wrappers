@@ -56,8 +56,12 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
     const Items = () => {
         return options.map((option, index) => (
             <div>
-                <div key={option.id} className="sidebar_item">
-                    <span onClick={() => handleClick(index)}>{option.label}</span>
+                <div key={option.id} className="sidebar_item" onClick={() => {
+                    if(option.options){
+                        handleClick(index)
+                    }
+                }}>
+                    <span >{option.label}</span>
                     {option.options && (
                         <FaAngleDown onClick={() => handleClick(index)} />
                     )}
