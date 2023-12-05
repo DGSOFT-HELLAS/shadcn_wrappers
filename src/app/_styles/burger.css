@@ -19,3 +19,15 @@
     margin: 2px 0;
     border-radius: 2px;
 }
+
+.burger_line:hover {
+    transform: scale(0.9);
+}
+
+
+
+.burger-x .line_2 {
+    display: none;
+}
+
+
