@@ -364,6 +364,7 @@ nav .right-nav div {
 }
 .avatar_wrapper {
   display: flex;
+  min-width: 220px;
 }
 
 .avatar {

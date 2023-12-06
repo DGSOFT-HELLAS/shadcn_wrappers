@@ -52,7 +52,7 @@ const Layout01 = ({ children }) => {
 
 
     return (
-        <div ref={scope} className={`layout_01  `}>
+        <div ref={scope} className={`layout_01`}>
             <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
             <div id="main_content">
                 <SidebarContent isSidebarOpen={isSidebarOpen} options={options} />

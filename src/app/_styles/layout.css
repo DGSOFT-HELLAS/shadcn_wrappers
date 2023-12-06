@@ -4,7 +4,7 @@
     flex-direction: column;
     overflow: hidden;
     width: 100vw;
-  
+    height: 100vh;
    
   }
   
@@ -155,6 +155,7 @@
   #navbar {
     height: 80px;
     position: fixed;
+ 
     top: 0;
     left: 0;
     color: var(--foreground);
@@ -209,7 +210,6 @@
     display: flex;
     margin-top: 70px;
     overflow-x: hidden;
-    background-color: var(--panel_background);
   }
   
   
@@ -237,3 +237,10 @@
     cursor: pointer; 
     height: 70px;
   }
+
+@media screen and (max-width: 700px) {
+  .nav-grid {
+    grid-template-columns: 120px 1fr;
+    
+  }
+}
