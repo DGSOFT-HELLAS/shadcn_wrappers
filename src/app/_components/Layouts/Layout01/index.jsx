@@ -11,14 +11,14 @@ import { BsFillCartFill } from "react-icons/bs";
 import { FaAngleUp } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 import { FaHeadphonesSimple } from "react-icons/fa6";
-
+import { useRouter } from 'next/navigation';
 
 import Link from 'next/link';
 const options = [
     { 
         id: 1, 
         label: 'Dashboard', 
-        href: '/dashboard', 
+        href: '/product', 
         icon: <MdDashboard />
     },
     {
@@ -65,6 +65,7 @@ const Layout01 = ({ children }) => {
 };
 
 const SidebarContent = ({ isSidebarOpen, options }) => {
+    const router = useRouter();
     const [selectedOption, setSelectedOption] = useState(null);
 
     const handleClick = (index) => {
@@ -75,12 +76,18 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
     const Items = () => {
         return options.map((option, index) => (
             <div>
-                <div key={option.id} className="sidebar_item" onClick={() => {
+                <div
+                 key={option.id} 
+                 className="sidebar_item" 
+                 onClick={() => {
                     if(option.options){
                         handleClick(index)
+                    } else {
+                       router && router.push(option.href)
                     }
+                    
                 }}> 
-                    <div className='sidebar_item_divicon'>
+                    <div className={`sidebar_item_divicon ${selectedOption === index ? "active" : null}`}>
                         <div className='sidebar_icon'>{option.icon && option.icon}</div>
                         <span>{option.label}</span>
                     </div>
@@ -92,7 +99,7 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                                 )}
                         </>
                     )}
-                </div>
+                </div >
                 <div className='subitem_container'>
                     {selectedOption === index &&
                         option.options &&

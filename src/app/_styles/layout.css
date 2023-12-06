@@ -67,6 +67,9 @@
     align-items: center;
   }
   
+  .sidebar_item_divicon .active {
+    color: var(--card-layer-01);
+  }
   .sidebar_icon {
     padding: 10px;
     margin-right: 10px;
