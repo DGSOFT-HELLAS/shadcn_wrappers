@@ -1,6 +1,8 @@
 .burger {
     border-radius: 6px;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    margin-left: 10px;
+    background-color: var(--card-layer-01);
     width: 40px;
     height: 40px;
     display: flex;
@@ -15,7 +17,8 @@
 .burger_line {
     width: 20px;
     height: 4px;
-    background-color: white;
+    background-color: var(--primary);
+    
     margin: 2px 0;
     border-radius: 2px;
 }

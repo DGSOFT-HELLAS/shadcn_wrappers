@@ -96,8 +96,8 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                 <div className='subitem_container'>
                     {selectedOption === index &&
                         option.options &&
-                        option.options.map((subOption) => (
-                            <Link href={option.href} key={subOption.label} className="sidebar_subitem">
+                        option.options.map((subOption, subIndex) => (
+                            <Link key={subIndex} href={option.href}  className="sidebar_subitem">
                                 {subOption.icon}
                                 <span>{subOption.label}</span>
                             </Link>
@@ -116,6 +116,7 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                     {/* default items */}
                     <SidebarItem label="Settings" icon={<IoSettings />} />
                     <SidebarItem label="Support" icon={<FaHeadphonesSimple />} />
+                   
                 </div>
             
             </div>

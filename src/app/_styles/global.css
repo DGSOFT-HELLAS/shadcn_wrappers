@@ -76,7 +76,9 @@ body {
     --panel_background:hsl(0, 0%, 3%);
     --card: hsl(220, 8%, 14%);
     --card-layer-01: hsl(220, 7%, 24%);
+    --text-light:  hsl(0, 0%, 0%);
     --card-layer-02:  hsl(220, 11%, 16%);
+    
     --card-foreground: hsl(210 40% 98%);
     --primary: hsl(37, 84%, 75%);
     --primary-foreground: hsl(222.2 47.4% 11.2%);
@@ -310,25 +312,18 @@ nav .right-nav div {
 }
 
 
-.avatar {
-  transition: transform 0.1s ease-in-out;
-  user-select: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px, rgba(0, 0, 0, 0.021) 0px 1px 1px 0px;
 
-}
 
-.avatar:active {
-  transform: scale(0.80);
-}
-
-.theme-switch {
-  border-radius: 30px;
-  width: 50px;
-  height: 32px;
-  padding: 3px;
+/* .theme-switch {
+  border-radius: 50px;
+  width: 60px;
+  height: 34px;
   margin: 5px 0px;
   cursor: pointer;
   position: relative;
+  background-color: var(--card-layer-01);
+  display: flex;
+  align-items: center;
   
 }
 
@@ -336,15 +331,54 @@ nav .right-nav div {
   transition: all 2s ease-in-out;
   border-radius: 50%;
   background-color: var(--background);
-  height: 25px;
-  width: 25px;
+  height: 28px;
+  width: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .inner-switch svg {
-  font-size: 15px;
+  font-size: 13px;
+} */
+
+.theme_switch {
+  background-color: var(--card-layer-01);
+  color: var(--foreground);
+  margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px; 
+  outline: none;
+  
+}
+.theme_switch > svg {
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.icon-btn {
+  background-color: var(--card-layer-01);
+
+}
+.avatar_wrapper {
+  display: flex;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar_details {
+  display: flex;
+}
+
+.avatar_details > div p:first-child {
+  margin-bottom: 7px;
 }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
+import { ButtonIcon } from './ButtonIcon'
+import Image from 'next/image'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,18 +13,37 @@ import {
   DropdownMenuGroup,
   DropdownMenuShortcut
 } from "@/components/ui/dropdown-menu"
+import { FaAngleDown } from "react-icons/fa";
+
+
 const Profile = () => {
   const [show, setShow] = useState(false);
+  const firstName = 'giannis';
+  const lastName = 'katsaros';
+  const role = "admin"
+  const handleAvatarName = () => {
+    if(firstName && lastName) {
+      return firstName[0].toUpperCase() + lastName[0].toUpperCase()
+    }
+  }
+  let initials = handleAvatarName();
   return (
     <DropdownMenu>
     <DropdownMenuTrigger asChild>
-      <Button variant="ghost" 
-        className="avatar relative h-8 w-8 rounded-full ">
-        <Avatar className="h-8 w-8 focus:none focus-visible-none  focus:ring-violet-300">
-          <AvatarImage src="/avatars/01.png" alt="@shadcn" />
-          <AvatarFallback >SC</AvatarFallback>
-        </Avatar>
-      </Button>
+       
+         
+          <div className='avatar_wrapper'>
+            <Button className='avatar'>
+                {initials}
+            </Button>
+            <div className="avatar_details">
+              <div>
+                <p className='text-sm font-medium leading-none'>{firstName} {lastName}</p>
+                <p className='text-xs leading-none text-muted-foreground'>{role}</p>
+              </div>
+              <FaAngleDown className='text-muted-foreground ml-2'/>
+            </div>
+          </div>
     </DropdownMenuTrigger>
     <DropdownMenuContent className="w-56" align="end" forceMount>
       <DropdownMenuLabel className="font-normal">

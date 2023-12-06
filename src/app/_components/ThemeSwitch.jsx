@@ -3,33 +3,36 @@ import React, { useEffect, useState } from 'react'
 import { FiSun } from "react-icons/fi";
 import { useTheme } from "next-themes"
 import { FaMoon } from "react-icons/fa";
-
+import { Button } from '@/components/ui/button';
 const ThemeSwitch = ({mr, ml}) => {
-  const { setTheme } = useTheme()
+  const {theme, setTheme } = useTheme()
   const [localTheme, setLocalTheme ] = useState(true)
 
+  
+  useEffect(() => {
+    if(theme === 'dark') {
+      setLocalTheme(true)
+    } else {
+      setLocalTheme(false)
+    }
+  }, [])
 
   const handleClick = () => {
-    console.log('toggle theme')
-        setTheme('dark')
-        if(localTheme === false) {
+        if(theme === 'dark') {
+          setTheme('light')
           setLocalTheme(true)
-          setTheme('lignt')
         } else {
-          setLocalTheme(false)
           setTheme('dark')
+          setLocalTheme(false)
         }
-          
-          
+      
   }
+
+
   return (
-    <div onClick={handleClick} className={`theme-switch bg-muted`} style={{marginRight: mr, marginLeft: ml}}  >
-      <div className='inner-switch' style={localTheme ? {left: '10%'} : {left: '85%', transform: "translateX(-85%)"} }>
-       
-        {localTheme ? <FiSun /> :<FaMoon />
-}
-      </div>
-    </div>
+    <Button onClick={handleClick} className='theme_switch'  size="icon">
+        {!localTheme ? <FaMoon  /> :<FiSun />}
+    </Button>
   )
 }
 
