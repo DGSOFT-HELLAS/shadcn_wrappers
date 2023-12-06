@@ -49,7 +49,10 @@ module.exports = {
         card: {
           DEFAULT: "var(--card)",
           foreground: "var(--card-foreground)",
+          soft: "var(--card-soft)",
         },
+        
+        panel_background: "var(--panel-background)",
       },
       borderRadius: {
         lg: "var(--radius)",

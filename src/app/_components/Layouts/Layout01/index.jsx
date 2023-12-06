@@ -6,19 +6,36 @@ import Profile from '../../Profile';
 import { MdDashboard } from "react-icons/md";
 import { motion, useAnimate } from 'framer-motion'
 import { FaAngleDown } from "react-icons/fa";
+import { IoPersonSharp } from "react-icons/io5";
+import { BsFillCartFill } from "react-icons/bs";
+import { FaAngleUp } from "react-icons/fa";
+
+
 import Link from 'next/link';
 const options = [
-    { id: 1, label: 'Dashboard', href: '/dashboard', },
+    { 
+        id: 1, 
+        label: 'Dashboard', 
+        href: '/dashboard', 
+        icon: <MdDashboard />
+    },
     {
         id: 2,
         label: 'Product',
         href: '/dashboard',
+        icon: <BsFillCartFill />
+        ,
         options: [
             { label: 'Subproduct', href: '/product' },
             { label: 'Subproduct2', href: '/product' }
         ]
     },
-    { id: 3, label: 'Users', href: '/dashboard' },
+    { 
+        id: 3, 
+        label: 'Users', 
+        href: '/dashboard',
+        icon: <IoPersonSharp /> 
+    },
 
 ]
 const Layout01 = ({ children }) => {
@@ -60,10 +77,18 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                     if(option.options){
                         handleClick(index)
                     }
-                }}>
-                    <span >{option.label}</span>
+                }}> 
+                    <div className='sidebar_item_divicon'>
+                        <div className='sidebar_icon'>{option.icon && option.icon}</div>
+                        <span>{option.label}</span>
+                    </div>
                     {option.options && (
-                        <FaAngleDown onClick={() => handleClick(index)} />
+                        <>
+                            {selectedOption === index ? (
+                                <FaAngleUp onClick={() => handleClick(index)}/> ) : (
+                                <FaAngleDown onClick={() => handleClick(index)}/>
+                                )}
+                        </>
                     )}
                 </div>
                 <div className='subitem_container'>
@@ -71,6 +96,7 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                         option.options &&
                         option.options.map((subOption) => (
                             <Link href={option.href} key={subOption.label} className="sidebar_subitem">
+                                {subOption.icon}
                                 <span>{subOption.label}</span>
                             </Link>
                         ))}
@@ -81,19 +107,9 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
     return (
         <div className={`sidebar ${!isSidebarOpen ? "sidebar-closed" : null}`} >
             <div className={`sidebar_content`}>
-                <p className='sidebar_title'>Menu:</p>
+                <p className='sidebar_title'>MAIN MENU:</p>
                 <div className='sidebar_menu'>
                     <Items />
-                    {/* <div className="sidebar_item">
-                    <span>Dashboard</span>
-                </div>
-                <div className="sidebar_item">
-                    <span>Dashboard</span>
-                </div>
-                <div className="sidebar_item">
-                    <span>Dashboard</span>
-                </div> */}
-
                 </div>
             </div>
         </div>
