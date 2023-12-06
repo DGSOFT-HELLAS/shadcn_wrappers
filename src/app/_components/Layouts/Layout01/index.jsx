@@ -9,6 +9,8 @@ import { FaAngleDown } from "react-icons/fa";
 import { IoPersonSharp } from "react-icons/io5";
 import { BsFillCartFill } from "react-icons/bs";
 import { FaAngleUp } from "react-icons/fa";
+import { IoSettings } from "react-icons/io5";
+import { FaHeadphonesSimple } from "react-icons/fa6";
 
 
 import Link from 'next/link';
@@ -110,13 +112,38 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                 <p className='sidebar_title'>MAIN MENU:</p>
                 <div className='sidebar_menu'>
                     <Items />
+                    <p className='sidebar_title'>SETTINGS:</p>
+                    {/* default items */}
+                    <SidebarItem label="Settings" icon={<IoSettings />} />
+                    <SidebarItem label="Support" icon={<FaHeadphonesSimple />} />
                 </div>
+            
             </div>
         </div>
     )
 }
 
 
+const SidebarItem = ({ label, selectedOption, index, icon, options }) => {
+    return (
+        <div className="sidebar_item" onClick={() => { handleClick(index) }}>
+            <div className='sidebar_item_divicon'>
+                <div className='sidebar_icon'>{icon && icon}</div>
+                <span>{label}</span>
+            </div>
+            <>
+                {options && (
+                    <>
+                        {selectedOption === index ? (
+                            <FaAngleUp onClick={() => handleClick(index)} />) : (
+                            <FaAngleDown onClick={() => handleClick(index)} />
+                        )}
+                    </>
+                )}
+            </>
+        </div>
+    )
+}
 
 const Navbar = ({ toggleSidebar, isSidebarOpen }) => {
     return (

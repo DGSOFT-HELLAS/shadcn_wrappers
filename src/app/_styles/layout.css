@@ -52,7 +52,7 @@
     cursor: pointer;
     font-weight: 600;
     position: relative;
-    height: 50px;
+    height: 60px;
     transition: background-color 0.5s ease;
     
   }
@@ -91,13 +91,13 @@
   .sidebar_title {
     margin-left: 10px;
     color: var(--card-soft);
-    font-size: var(--font-md);
+    font-size: var(--font-sm);
     font-weight: 700;
     letter-spacing: 1.4px;
     position: relative;
     display: block;
     margin-bottom: 10px;
-  
+    margin-top: 20px;
   }
   
   
@@ -113,10 +113,26 @@
     font-weight: 600;
     position: relative;
     transition: color 0.5s ease;
+    margin-left: 8px;
+    font-weight: 300;
+    /* color: var(--card-layer-03); */
 
     
   }
+  .sidebar_subitem::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: var(--primary);
+   
 
+
+  }
   .sidebar_subitem:hover {
     color: var(--primary)
   }

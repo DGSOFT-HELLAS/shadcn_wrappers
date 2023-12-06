@@ -4,6 +4,8 @@
 
 @import './burger.css';
 @import './layout.css';
+
+
 * {
   margin: 0;
 }
@@ -71,7 +73,7 @@ body {
   .dark {
     --background: hsl(0, 0%, 0%);
     --foreground: hsl(210 40% 98%);
-    --panel_background:hsl(222.2 84% 4.9%);
+    --panel_background:hsl(0, 0%, 3%);
     --card: hsl(220, 8%, 14%);
     --card-layer-01: hsl(220, 7%, 24%);
     --card-layer-02:  hsl(220, 11%, 16%);
@@ -87,7 +89,7 @@ body {
  
     --popover: hsl(222.2 84% 4.9%);
     --popover-foreground: 210 40% 98%;
-    
+
     --accent: hsl(217.2 32.6% 17.5%);
     --accent-foreground: hsl(210 40% 98%);
  
