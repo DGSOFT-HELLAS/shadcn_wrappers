@@ -5,7 +5,7 @@
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-   
+
   }
   
   .sidebar {
@@ -23,6 +23,7 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    
   }
 
   .sidebar-closed {
@@ -242,5 +243,10 @@
   .nav-grid {
     grid-template-columns: 120px 1fr;
     
+  }
+
+  
+  .content {
+    margin-left: 0px;
   }
 }
