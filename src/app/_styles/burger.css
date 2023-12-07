@@ -1,7 +1,7 @@
 .burger {
     border-radius: 4px;
     margin-left: 10px;
-    background-color: var(--card-layer-01);
+    background-color: var(--card-layer-02);
     width: 35px;
     height: 35px;
     display: flex;

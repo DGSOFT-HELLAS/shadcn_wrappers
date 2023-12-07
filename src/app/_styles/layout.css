@@ -5,31 +5,34 @@
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+    position: relative;
 
   }
   
   .sidebar {
-    width: 260px;
-    transition: transform 0.3s ease-in-out;
     position: fixed;
-    top: 70px;
     left: 0;
-    overflow-y: auto;
-    height: 100%;
-    overflow-x: hidden;
-    transition: width 0.3s ease-in-out;
+    top: 82px;
+    bottom: 0;
     z-index: 100;
-    background-color: var(--background);
+    height: 100vh;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    opacity: 1;
+    display: block;
+    background-color: var(--background);
+    transition: opacity 0.4s ease-in-out; 
+
     
   }
 
   .sidebar-closed {
-    width: 0;
-    padding: 0;
-    border: none;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out; /* Adjust the duration and timing function as needed */
+
+
   }
   
   
@@ -37,65 +40,70 @@
     padding: 15px;
     z-index: 100;
     width: 260px;
+    height: 100vh;
+
   }
   
   
   
   
   .sidebar_item {
+    
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 45px;
+    height: 200px;
     border-radius: var(--radius);
     margin-bottom: 10px;
     cursor: pointer;
     font-weight: 600;
     position: relative;
-    height: 60px;
+    height: 45px;
     transition: background-color 0.5s ease;
+    
+    
     
   }
   .sidebar_item:hover {
     background-color: var(--card-layer-01);
-  
   }
 
 
 .sidebar_item_divicon {
     display: flex;
     align-items: center;
+    width: 20px;
+    height: 20px;
+    
   }
   
   .sidebar_item_divicon .active {
     color: var(--card-layer-01);
   }
   .sidebar_icon {
-    padding: 10px;
+    padding: 8px;
     margin-right: 10px;
     color: var(--muted-foreground);
     background-color: var(--card-layer-02);
-    font-size: 20px;
     border-radius: 6px;
     transition: color 0.5s ease;
   }
   .sidebar_item svg {
     color: var(--foreground);
-    font-size: 20px;
+    font-size: 16px;
     transition: color 0.5s e
   }
 
   .sidebar_item:hover  div {
     color: var(--primary);
   }
-  .sidebar_item:hover  svg{
-    color: var(--primary);
-  }
+  
+
   .sidebar_title {
     margin-left: 10px;
-    color: var(--card-layer-03);
-    font-size: var(--font-sm);
+    /* color: var(--card-layer-01); */
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 1.4px;
     position: relative;
@@ -156,7 +164,8 @@
   #navbar {
     height: 80px;
     position: fixed;
- 
+    z-index: 50;
+    border-bottom: 1px solid var(--border);
     top: 0;
     left: 0;
     color: var(--foreground);
@@ -164,21 +173,22 @@
     justify-content: space-between;
     background-color: var(--background);
     width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   
   .nav-grid {
+
     display: grid;
-    grid-template-columns: 260px 1fr;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    grid-template-columns: auto 1fr;
+   
+    width: 70%;
     height: 100%;
   
   }
   .nav-logo {
-    height: 100%;
-    padding: 0 20px;
     z-index: 4;
+
   }
   
   .nav-right {
@@ -207,19 +217,19 @@
   
   
   #main_content {
-    flex: 1;
     display: flex;
-    margin-top: 70px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     overflow-x: hidden;
   }
   
-  
   .content {
-    padding: 30px;
     transition: margin-left 0.3s ease-in-out;
-    width: 100%;
-    margin-left: 260px;
-    height: 100%;
+    width: 70%;
+    margin-top: 190px;
+    height: 100vh;
+   
   }
   
   .content_closed {
@@ -250,3 +260,10 @@
     margin-left: 0px;
   }
 }
+
+
+.pinned-links {
+ 
+}
+
+.pinned-navbar {}

@@ -4,7 +4,7 @@ import Logo from '../../Logo';
 import ThemeSwitch from '../../ThemeSwitch';
 import Profile from '../../Profile';
 import { MdDashboard } from "react-icons/md";
-import { motion, useAnimate } from 'framer-motion'
+import { motion, useAnimate, stagger} from 'framer-motion'
 import { FaAngleDown } from "react-icons/fa";
 import { IoPersonSharp } from "react-icons/io5";
 import { BsFillCartFill } from "react-icons/bs";
@@ -13,12 +13,14 @@ import { IoSettings } from "react-icons/io5";
 import { FaHeadphonesSimple } from "react-icons/fa6";
 import { useRouter } from 'next/navigation';
 
+
 import Link from 'next/link';
+import PinnedNavbar from '../../PinnedNavbar';
 const options = [
-    { 
-        id: 1, 
-        label: 'Dashboard', 
-        href: '/product', 
+    {
+        id: 1,
+        label: 'Dashboard',
+        href: '/product',
         icon: <MdDashboard />
     },
     {
@@ -32,16 +34,16 @@ const options = [
             { label: 'Subproduct2', href: '/product' }
         ]
     },
-    { 
-        id: 3, 
-        label: 'Users', 
+    {
+        id: 3,
+        label: 'Users',
         href: '/dashboard',
-        icon: <IoPersonSharp /> 
+        icon: <IoPersonSharp />
     },
 
 ]
 const Layout01 = ({ children }) => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [scope, animate] = useAnimate()
 
     const toggleSidebar = () => {
@@ -52,19 +54,23 @@ const Layout01 = ({ children }) => {
 
 
     return (
-        <div ref={scope} className={`layout_01`}>
-            <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
-            <div id="main_content">
-                <SidebarContent isSidebarOpen={isSidebarOpen} options={options} />
-                <div className={`content ${!isSidebarOpen ? "content_closed" : null}`}>
-                    {children}
+        <>
+            <SidebarContent isSidebarOpen={isSidebarOpen} options={options} />
+            <div ref={scope} className={`layout_01`}>
+                <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+                <div id="main_content">
+                    <div className={`content ${!isSidebarOpen ? "content_closed" : null}`}>
+                        {/* <PinnedNavbar /> */}
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
 const SidebarContent = ({ isSidebarOpen, options }) => {
+    const [controls, animate] = useAnimate()
     const router = useRouter();
     const [selectedOption, setSelectedOption] = useState(null);
 
@@ -75,18 +81,18 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
 
     const Items = () => {
         return options.map((option, index) => (
-            <div>
+            <div  key={index}>
                 <div
-                 key={option.id} 
-                 className="sidebar_item" 
-                 onClick={() => {
-                    if(option.options){
-                        handleClick(index)
-                    } else {
-                       router && router.push(option.href)
-                    }
-                    
-                }}> 
+                   
+                    className="sidebar_item"
+                    onClick={() => {
+                        if (option.options) {
+                            handleClick(index)
+                        } else {
+                            router && router.push(option.href)
+                        }
+
+                    }}>
                     <div className={`sidebar_item_divicon ${selectedOption === index ? "active" : null}`}>
                         <div className='sidebar_icon'>{option.icon && option.icon}</div>
                         <span>{option.label}</span>
@@ -94,9 +100,9 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                     {option.options && (
                         <>
                             {selectedOption === index ? (
-                                <FaAngleUp onClick={() => handleClick(index)}/> ) : (
-                                <FaAngleDown onClick={() => handleClick(index)}/>
-                                )}
+                                <FaAngleUp onClick={() => handleClick(index)} />) : (
+                                <FaAngleDown onClick={() => handleClick(index)} />
+                            )}
                         </>
                     )}
                 </div >
@@ -104,7 +110,7 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
                     {selectedOption === index &&
                         option.options &&
                         option.options.map((subOption, subIndex) => (
-                            <Link key={subIndex} href={option.href}  className="sidebar_subitem">
+                            <Link key={subIndex} href={option.href} className="sidebar_subitem">
                                 {subOption.icon}
                                 <span>{subOption.label}</span>
                             </Link>
@@ -114,20 +120,17 @@ const SidebarContent = ({ isSidebarOpen, options }) => {
         ));
     };
     return (
-        <div className={`sidebar ${!isSidebarOpen ? "sidebar-closed" : null}`} >
+        <aside className={`sidebar ${!isSidebarOpen ? "sidebar-closed" : null} `} >
             <div className={`sidebar_content`}>
                 <p className='sidebar_title'>MAIN MENU:</p>
                 <div className='sidebar_menu'>
                     <Items />
                     <p className='sidebar_title'>SETTINGS:</p>
-                    {/* default items */}
-                    <SidebarItem label="Settings" icon={<IoSettings />} />
+                    <SidebarItem label="Settings" href="/settings" icon={<IoSettings />} />
                     <SidebarItem label="Support" icon={<FaHeadphonesSimple />} />
-                   
                 </div>
-            
             </div>
-        </div>
+        </aside>
     )
 }
 
@@ -173,10 +176,10 @@ const Navbar = ({ toggleSidebar, isSidebarOpen }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
+
 
 const Burger = ({ toggleSidebar, isSidebarOpen }) => {
     const [scope, animate] = useAnimate()

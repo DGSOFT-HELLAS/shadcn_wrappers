@@ -28,13 +28,13 @@ body {
   :root {
     --navbar-height: 70px;
     --background:  hsl(0, 0%, 100%);
-    --panel_background: hsl(0, 6%, 97%);
+    --panel_background: hsla(0, 0%, 95%, 0.37);
     --foreground: hsl(222.2 84% 4.9%);
     --background-contrast: #f6f6f970;
        /* --------------------------------------- */
     --card: hsl(0, 0%, 100%);
     --card-layer-01: hsl(0, 0%, 91%);
-    --card-layer-02: hsl(0, 0%, 86%);
+    --card-layer-02: hsl(0, 0%, 96%);
     --card-layer-03: hsl(0, 0%, 80%);
     --card-soft: hsl(0, 3%, 81%);
     --card-foreground: hsl(222.2 84% 4.9%);
@@ -75,7 +75,7 @@ body {
     --foreground: hsl(210 40% 98%);
     --panel_background:hsl(0, 0%, 3%);
     --card: hsl(220, 8%, 14%);
-    --card-layer-01: hsl(220, 7%, 24%);
+    --card-layer-01: hsl(222, 6%, 33%);
     --text-light:  hsl(0, 0%, 0%);
     --card-layer-02:  hsl(220, 11%, 16%);
     
@@ -89,7 +89,7 @@ body {
     --muted: hsl(214, 14%, 34%);
     --muted-foreground: hsl(215 20.2% 65.1%);
  
-    --popover: hsl(222.2 84% 4.9%);
+    --popover: hsl(0, 0%, 3%);
     --popover-foreground: 210 40% 98%;
 
     --accent: hsl(217.2 32.6% 17.5%);
@@ -153,8 +153,8 @@ body {
 .card {
   background-color: var(--card);
   padding: 10px;
-  border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: rgba(60, 64, 67, 0.171) 0px 1px 2px 0px, rgba(60, 64, 67, 0.048) 0px 1px 3px 1px;
 }
 
 
@@ -313,38 +313,8 @@ nav .right-nav div {
 
 
 
-
-/* .theme-switch {
-  border-radius: 50px;
-  width: 60px;
-  height: 34px;
-  margin: 5px 0px;
-  cursor: pointer;
-  position: relative;
-  background-color: var(--card-layer-01);
-  display: flex;
-  align-items: center;
-  
-}
-
-.inner-switch {
-  transition: all 2s ease-in-out;
-  border-radius: 50%;
-  background-color: var(--background);
-  height: 28px;
-  width: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-}
-
-.inner-switch svg {
-  font-size: 13px;
-} */
-
 .theme_switch {
-  background-color: var(--card-layer-01);
+  background-color: var(--card-layer-02);
   color: var(--foreground);
   margin-right: 10px;
   width: 36px;
@@ -383,3 +353,5 @@ nav .right-nav div {
 .avatar_details > div p:first-child {
   margin-bottom: 7px;
 }
+
+
