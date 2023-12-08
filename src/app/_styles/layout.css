@@ -262,8 +262,19 @@
 }
 
 
-.pinned-links {
- 
-}
+.pinned-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 14px;
 
-.pinned-navbar {}
+}
+.add_more_btn {
+  border: 1px solid var(--foreground);
+  border-radius: 3px;
+  padding: 10px;
+  border-style: dotted;
+  width: 100%;
+}

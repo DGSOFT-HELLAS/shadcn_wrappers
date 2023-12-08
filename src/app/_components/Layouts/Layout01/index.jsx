@@ -60,7 +60,7 @@ const Layout01 = ({ children }) => {
                 <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
                 <div id="main_content">
                     <div className={`content ${!isSidebarOpen ? "content_closed" : null}`}>
-                        {/* <PinnedNavbar /> */}
+                        <PinnedNavbar />
                         {children}
                     </div>
                 </div>
